@@ -8,8 +8,8 @@ import (
 	mrand "math/rand"
 	"net"
 
-	"github.com/quic-go/quic-go"
-	"github.com/quic-go/quic-go/internal/protocol"
+	"github.com/quic-go-no-crypto/quic-go-no-crypto"
+	"github.com/quic-go-no-crypto/quic-go-no-crypto/internal/protocol"
 
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"

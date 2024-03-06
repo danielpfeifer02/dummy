@@ -14,12 +14,12 @@ import (
 	"net"
 	"time"
 
-	"github.com/quic-go/quic-go/fuzzing/internal/helper"
-	"github.com/quic-go/quic-go/internal/handshake"
-	"github.com/quic-go/quic-go/internal/protocol"
-	"github.com/quic-go/quic-go/internal/qtls"
-	"github.com/quic-go/quic-go/internal/utils"
-	"github.com/quic-go/quic-go/internal/wire"
+	"github.com/quic-go-no-crypto/quic-go-no-crypto/fuzzing/internal/helper"
+	"github.com/quic-go-no-crypto/quic-go-no-crypto/internal/handshake"
+	"github.com/quic-go-no-crypto/quic-go-no-crypto/internal/protocol"
+	"github.com/quic-go-no-crypto/quic-go-no-crypto/internal/qtls"
+	"github.com/quic-go-no-crypto/quic-go-no-crypto/internal/utils"
+	"github.com/quic-go-no-crypto/quic-go-no-crypto/internal/wire"
 )
 
 var (

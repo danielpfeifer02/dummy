@@ -12,7 +12,7 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/quic-go/quic-go"
+	"github.com/quic-go-no-crypto/quic-go-no-crypto"
 )
 
 const h09alpn = "hq-interop"

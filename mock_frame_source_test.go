@@ -11,8 +11,8 @@ package quic
 import (
 	reflect "reflect"
 
-	ackhandler "github.com/quic-go/quic-go/internal/ackhandler"
-	protocol "github.com/quic-go/quic-go/internal/protocol"
+	ackhandler "github.com/quic-go-no-crypto/quic-go-no-crypto/internal/ackhandler"
+	protocol "github.com/quic-go-no-crypto/quic-go-no-crypto/internal/protocol"
 	gomock "go.uber.org/mock/gomock"
 )
 

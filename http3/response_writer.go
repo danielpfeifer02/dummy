@@ -9,8 +9,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/quic-go/quic-go"
-	"github.com/quic-go/quic-go/internal/utils"
+	"github.com/quic-go-no-crypto/quic-go-no-crypto"
+	"github.com/quic-go-no-crypto/quic-go-no-crypto/internal/utils"
 
 	"github.com/quic-go/qpack"
 )

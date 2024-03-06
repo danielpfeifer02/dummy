@@ -12,9 +12,9 @@ import (
 	net "net"
 	reflect "reflect"
 
-	protocol "github.com/quic-go/quic-go/internal/protocol"
-	wire "github.com/quic-go/quic-go/internal/wire"
-	logging "github.com/quic-go/quic-go/logging"
+	protocol "github.com/quic-go-no-crypto/quic-go-no-crypto/internal/protocol"
+	wire "github.com/quic-go-no-crypto/quic-go-no-crypto/internal/wire"
+	logging "github.com/quic-go-no-crypto/quic-go-no-crypto/logging"
 	gomock "go.uber.org/mock/gomock"
 )
 
