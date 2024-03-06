@@ -164,7 +164,7 @@ func (u *packetUnpacker) unpackShortHeaderPacket(opener handshake.ShortHeaderOpe
 
 func (u *packetUnpacker) unpackShortHeader(hd headerDecryptor, data []byte) (int, protocol.PacketNumber, protocol.PacketNumberLen, protocol.KeyPhaseBit, error) {
 	hdrLen := 1 /* first header byte */ + u.shortHdrConnIDLen
-	if len(data) < hdrLen+4+16 {
+	if len(data) < hdrLen+4 { //+16 { // TODOME remove 16 bc of decryption overhead (?)
 		return 0, 0, 0, 0, fmt.Errorf("packet too small, expected at least 20 bytes after the header, got %d", len(data)-hdrLen)
 	}
 	origPNBytes := make([]byte, 4)

@@ -85,6 +85,9 @@ func (f *xorNonceAEAD) Overhead() int         { return f.aead.Overhead() }
 func (f *xorNonceAEAD) explicitNonceLen() int { return 0 }
 
 func (f *xorNonceAEAD) Seal(out, nonce, plaintext, additionalData []byte) []byte {
+	// TODOME
+	return plaintext
+
 	for i, b := range nonce {
 		f.nonceMask[4+i] ^= b
 	}
@@ -97,6 +100,9 @@ func (f *xorNonceAEAD) Seal(out, nonce, plaintext, additionalData []byte) []byte
 }
 
 func (f *xorNonceAEAD) Open(out, nonce, ciphertext, additionalData []byte) ([]byte, error) {
+	// TODOME
+	return ciphertext, nil
+
 	for i, b := range nonce {
 		f.nonceMask[4+i] ^= b
 	}
