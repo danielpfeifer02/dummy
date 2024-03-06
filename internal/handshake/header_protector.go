@@ -31,6 +31,11 @@ func newHeaderProtector(suite *cipherSuite, trafficSecret []byte, isLongHeader b
 		return newAESHeaderProtector(suite, trafficSecret, isLongHeader, hkdfLabel)
 	case tls.TLS_CHACHA20_POLY1305_SHA256:
 		return newChaChaHeaderProtector(suite, trafficSecret, isLongHeader, hkdfLabel)
+
+	// noHeaderProtector is used for testing purposes only
+	// based on https://pkg.go.dev/crypto/tls#pkg-constants 0x0000 is not used for any other cipher suite
+	case 0x0000:
+		return newNoHeaderProtector()
 	default:
 		panic(fmt.Sprintf("Invalid cipher suite id: %d", suite.ID))
 	}
@@ -57,11 +62,11 @@ func newAESHeaderProtector(suite *cipherSuite, trafficSecret []byte, isLongHeade
 }
 
 func (p *aesHeaderProtector) DecryptHeader(sample []byte, firstByte *byte, hdrBytes []byte) {
-	p.apply(sample, firstByte, hdrBytes)
+	//p.apply(sample, firstByte, hdrBytes)
 }
 
 func (p *aesHeaderProtector) EncryptHeader(sample []byte, firstByte *byte, hdrBytes []byte) {
-	p.apply(sample, firstByte, hdrBytes)
+	//p.apply(sample, firstByte, hdrBytes)
 }
 
 func (p *aesHeaderProtector) apply(sample []byte, firstByte *byte, hdrBytes []byte) {
@@ -99,11 +104,11 @@ func newChaChaHeaderProtector(suite *cipherSuite, trafficSecret []byte, isLongHe
 }
 
 func (p *chachaHeaderProtector) DecryptHeader(sample []byte, firstByte *byte, hdrBytes []byte) {
-	p.apply(sample, firstByte, hdrBytes)
+	//p.apply(sample, firstByte, hdrBytes)
 }
 
 func (p *chachaHeaderProtector) EncryptHeader(sample []byte, firstByte *byte, hdrBytes []byte) {
-	p.apply(sample, firstByte, hdrBytes)
+	//p.apply(sample, firstByte, hdrBytes)
 }
 
 func (p *chachaHeaderProtector) apply(sample []byte, firstByte *byte, hdrBytes []byte) {
@@ -132,3 +137,25 @@ func (p *chachaHeaderProtector) applyMask(firstByte *byte, hdrBytes []byte) {
 		hdrBytes[i] ^= p.mask[i+1]
 	}
 }
+
+// noHeaderProtector type to omit the header protection.
+// TODOME even necessary?
+
+type noHeaderProtector struct{}
+
+var _ headerProtector = &noHeaderProtector{}
+
+func newNoHeaderProtector() headerProtector {
+	p := &chachaHeaderProtector{}
+	return p
+}
+
+func (p *noHeaderProtector) DecryptHeader(sample []byte, firstByte *byte, hdrBytes []byte) {
+	p.apply(sample, firstByte, hdrBytes)
+}
+
+func (p *noHeaderProtector) EncryptHeader(sample []byte, firstByte *byte, hdrBytes []byte) {
+	p.apply(sample, firstByte, hdrBytes)
+}
+
+func (p *noHeaderProtector) apply(sample []byte, firstByte *byte, hdrBytes []byte) {}

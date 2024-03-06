@@ -37,6 +37,11 @@ func SetCipherSuite(id uint16) (reset func()) {
 		cipherSuitesTLS13 = cipherSuitesTLS13[1:2]
 	case tls.TLS_AES_256_GCM_SHA384:
 		cipherSuitesTLS13 = cipherSuitesTLS13[2:]
+
+	// noHeaderProtector is used for testing purposes only
+	// based on https://pkg.go.dev/crypto/tls#pkg-constants 0x0000 is not used for any other cipher suite
+	case 0x0000:
+		// TODOME
 	default:
 		panic(fmt.Sprintf("unexpected cipher suite: %d", id))
 	}

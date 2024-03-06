@@ -413,6 +413,7 @@ func (t *Transport) handlePacket(p receivedPacket) {
 		return
 	}
 	if !wire.IsPotentialQUICPacket(p.data[0]) && !wire.IsLongHeaderPacket(p.data[0]) {
+		print("non-QUIC packet")
 		t.handleNonQUICPacket(p)
 		return
 	}
@@ -428,6 +429,7 @@ func (t *Transport) handlePacket(p receivedPacket) {
 
 	// If there's a connection associated with the connection ID, pass the packet there.
 	if handler, ok := t.handlerMap.Get(connID); ok {
+		print(1)
 		handler.handlePacket(p)
 		return
 	}

@@ -27,43 +27,47 @@ func DecodePacketNumber(
 	lastPacketNumber PacketNumber,
 	wirePacketNumber PacketNumber,
 ) PacketNumber {
-	var epochDelta PacketNumber
-	switch packetNumberLength {
-	case PacketNumberLen1:
-		epochDelta = PacketNumber(1) << 8
-	case PacketNumberLen2:
-		epochDelta = PacketNumber(1) << 16
-	case PacketNumberLen3:
-		epochDelta = PacketNumber(1) << 24
-	case PacketNumberLen4:
-		epochDelta = PacketNumber(1) << 32
-	}
-	epoch := lastPacketNumber & ^(epochDelta - 1)
-	var prevEpochBegin PacketNumber
-	if epoch > epochDelta {
-		prevEpochBegin = epoch - epochDelta
-	}
-	nextEpochBegin := epoch + epochDelta
-	return closestTo(
-		lastPacketNumber+1,
-		epoch+wirePacketNumber,
-		closestTo(lastPacketNumber+1, prevEpochBegin+wirePacketNumber, nextEpochBegin+wirePacketNumber),
-	)
+
+	// TODOME no decryption for now (no crypto)
+	return wirePacketNumber
+
+	// var epochDelta PacketNumber
+	// switch packetNumberLength {
+	// case PacketNumberLen1:
+	// 	epochDelta = PacketNumber(1) << 8
+	// case PacketNumberLen2:
+	// 	epochDelta = PacketNumber(1) << 16
+	// case PacketNumberLen3:
+	// 	epochDelta = PacketNumber(1) << 24
+	// case PacketNumberLen4:
+	// 	epochDelta = PacketNumber(1) << 32
+	// }
+	// epoch := lastPacketNumber & ^(epochDelta - 1)
+	// var prevEpochBegin PacketNumber
+	// if epoch > epochDelta {
+	// 	prevEpochBegin = epoch - epochDelta
+	// }
+	// nextEpochBegin := epoch + epochDelta
+	// return closestTo(
+	// 	lastPacketNumber+1,
+	// 	epoch+wirePacketNumber,
+	// 	closestTo(lastPacketNumber+1, prevEpochBegin+wirePacketNumber, nextEpochBegin+wirePacketNumber),
+	// )
 }
 
-func closestTo(target, a, b PacketNumber) PacketNumber {
-	if delta(target, a) < delta(target, b) {
-		return a
-	}
-	return b
-}
+// func closestTo(target, a, b PacketNumber) PacketNumber {
+// 	if delta(target, a) < delta(target, b) {
+// 		return a
+// 	}
+// 	return b
+// }
 
-func delta(a, b PacketNumber) PacketNumber {
-	if a < b {
-		return b - a
-	}
-	return a - b
-}
+// func delta(a, b PacketNumber) PacketNumber {
+// 	if a < b {
+// 		return b - a
+// 	}
+// 	return a - b
+// }
 
 // GetPacketNumberLengthForHeader gets the length of the packet number for the public header
 // it never chooses a PacketNumberLen of 1 byte, since this is too short under certain circumstances

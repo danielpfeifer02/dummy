@@ -154,6 +154,11 @@ func (a *updatableAEAD) setAEADParameters(aead cipher.AEAD, suite *cipherSuite) 
 		a.invalidPacketLimit = protocol.InvalidPacketLimitAES
 	case tls.TLS_CHACHA20_POLY1305_SHA256:
 		a.invalidPacketLimit = protocol.InvalidPacketLimitChaCha
+
+	// noHeaderProtector is used for testing purposes only
+	// based on https://pkg.go.dev/crypto/tls#pkg-constants 0x0000 is not used for any other cipher suite
+	case 0x0000:
+		print("no AEAD parameters need to be set for 0x0000\n")
 	default:
 		panic(fmt.Sprintf("unknown cipher suite %d", suite.ID))
 	}
@@ -164,6 +169,9 @@ func (a *updatableAEAD) DecodePacketNumber(wirePN protocol.PacketNumber, wirePNL
 }
 
 func (a *updatableAEAD) Open(dst, src []byte, rcvTime time.Time, pn protocol.PacketNumber, kp protocol.KeyPhaseBit, ad []byte) ([]byte, error) {
+	// TODOME
+	return src, nil
+
 	dec, err := a.open(dst, src, rcvTime, pn, kp, ad)
 	if err == ErrDecryptionFailed {
 		a.invalidPacketCount++
