@@ -75,17 +75,19 @@ func (o *longHeaderOpener) DecodePacketNumber(wirePN protocol.PacketNumber, wire
 }
 
 func (o *longHeaderOpener) Open(dst, src []byte, pn protocol.PacketNumber, ad []byte) ([]byte, error) {
-	//TODOME
+	// NO_CRYPTO_TAG
+	// omit cryptographic operations for prove of concept
+	// TODO implement this as an *option* instead of just commenting it out
 	return src, nil
 
-	binary.BigEndian.PutUint64(o.nonceBuf[:], uint64(pn))
-	dec, err := o.aead.Open(dst, o.nonceBuf[:], src, ad)
-	if err == nil {
-		o.highestRcvdPN = max(o.highestRcvdPN, pn)
-	} else {
-		err = ErrDecryptionFailed
-	}
-	return dec, err
+	// binary.BigEndian.PutUint64(o.nonceBuf[:], uint64(pn))
+	// dec, err := o.aead.Open(dst, o.nonceBuf[:], src, ad)
+	// if err == nil {
+	// 	o.highestRcvdPN = max(o.highestRcvdPN, pn)
+	// } else {
+	// 	err = ErrDecryptionFailed
+	// }
+	// return dec, err
 }
 
 func (o *longHeaderOpener) DecryptHeader(sample []byte, firstByte *byte, pnBytes []byte) {

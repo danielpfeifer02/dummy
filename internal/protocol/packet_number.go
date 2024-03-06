@@ -28,7 +28,9 @@ func DecodePacketNumber(
 	wirePacketNumber PacketNumber,
 ) PacketNumber {
 
-	// TODOME no decryption for now (no crypto)
+	// NO_CRYPTO_TAG
+	// omit cryptographic operations for prove of concept
+	// TODO implement this as an *option* instead of just commenting it out
 	return wirePacketNumber
 
 	// var epochDelta PacketNumber

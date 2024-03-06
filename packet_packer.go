@@ -899,17 +899,14 @@ func (p *packetPacker) appendPacketPayload(raw []byte, pl payload, paddingLen pr
 
 func (p *packetPacker) encryptPacket(raw []byte, sealer sealer, pn protocol.PacketNumber, payloadOffset, pnLen protocol.ByteCount) []byte {
 
-	// tmp := raw
-	// fmt.Printf("%d\n%x\n", sealer.Overhead(), tmp)
-	// // TODOME
+	// NO_CRYPTO_TAG
+	// omit cryptographic operations for prove of concept
+	// TODO implement this as an *option* instead of just commenting it out
 	// _ = sealer.Seal(raw[payloadOffset:payloadOffset], raw[payloadOffset:], pn, raw[:payloadOffset])
-	// fmt.Printf("------%x\n", raw)
 	// raw = raw[:len(raw)+sealer.Overhead()]
-	// fmt.Printf("------%x\n", raw)
 	// // apply header protection
 	// pnOffset := payloadOffset - pnLen
 	// sealer.EncryptHeader(raw[pnOffset+4:pnOffset+4+16], &raw[0], raw[pnOffset:payloadOffset])
-	// fmt.Printf("%x\n\n", raw)
 	return raw
 }
 

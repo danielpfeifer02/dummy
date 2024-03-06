@@ -958,7 +958,7 @@ func (s *connection) handleLongHeaderPacket(p receivedPacket, hdr *wire.Header) 
 		return false
 	}
 
-	packet, err := s.unpacker.UnpackLongHeader(hdr, p.rcvTime, p.data, s.version) // TODOME
+	packet, err := s.unpacker.UnpackLongHeader(hdr, p.rcvTime, p.data, s.version)
 	if err != nil {
 		wasQueued = s.handleUnpackError(err, p, logging.PacketTypeFromHeader(hdr))
 		return false

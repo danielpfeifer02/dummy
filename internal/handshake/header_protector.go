@@ -138,8 +138,11 @@ func (p *chachaHeaderProtector) applyMask(firstByte *byte, hdrBytes []byte) {
 	}
 }
 
-// noHeaderProtector type to omit the header protection.
-// TODOME even necessary?
+// NO_CRYPTO_TAG
+// omit cryptographic operations for prove of concept
+// noHeaderProtector type to omit the header protection
+// this will be used later once the crypto omission is
+// implemented as an *option*
 
 type noHeaderProtector struct{}
 

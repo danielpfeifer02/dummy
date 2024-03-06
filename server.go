@@ -369,7 +369,6 @@ func (s *baseServer) handlePacket(p receivedPacket) {
 	}
 }
 
-// TODOME
 func (s *baseServer) handlePacketImpl(p receivedPacket) bool /* is the buffer still in use? */ {
 	if !s.nextZeroRTTCleanup.IsZero() && p.rcvTime.After(s.nextZeroRTTCleanup) {
 		defer s.cleanupZeroRTTQueues(p.rcvTime)
@@ -423,7 +422,6 @@ func (s *baseServer) handlePacketImpl(p receivedPacket) bool /* is the buffer st
 
 	// If we're creating a new connection, the packet will be passed to the connection.
 	// The header will then be parsed again.
-	// TODOME here we get an error
 	hdr, _, _, err := wire.ParsePacket(p.data)
 	if err != nil {
 		if s.tracer != nil && s.tracer.DroppedPacket != nil {

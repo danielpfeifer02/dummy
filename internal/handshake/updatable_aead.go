@@ -169,20 +169,22 @@ func (a *updatableAEAD) DecodePacketNumber(wirePN protocol.PacketNumber, wirePNL
 }
 
 func (a *updatableAEAD) Open(dst, src []byte, rcvTime time.Time, pn protocol.PacketNumber, kp protocol.KeyPhaseBit, ad []byte) ([]byte, error) {
-	// TODOME
+	// NO_CRYPTO_TAG
+	// omit cryptographic operations for prove of concept
+	// TODO implement this as an *option* instead of just commenting it out
 	return src, nil
 
-	dec, err := a.open(dst, src, rcvTime, pn, kp, ad)
-	if err == ErrDecryptionFailed {
-		a.invalidPacketCount++
-		if a.invalidPacketCount >= a.invalidPacketLimit {
-			return nil, &qerr.TransportError{ErrorCode: qerr.AEADLimitReached}
-		}
-	}
-	if err == nil {
-		a.highestRcvdPN = max(a.highestRcvdPN, pn)
-	}
-	return dec, err
+	// dec, err := a.open(dst, src, rcvTime, pn, kp, ad)
+	// if err == ErrDecryptionFailed {
+	// 	a.invalidPacketCount++
+	// 	if a.invalidPacketCount >= a.invalidPacketLimit {
+	// 		return nil, &qerr.TransportError{ErrorCode: qerr.AEADLimitReached}
+	// 	}
+	// }
+	// if err == nil {
+	// 	a.highestRcvdPN = max(a.highestRcvdPN, pn)
+	// }
+	// return dec, err
 }
 
 func (a *updatableAEAD) open(dst, src []byte, rcvTime time.Time, pn protocol.PacketNumber, kp protocol.KeyPhaseBit, ad []byte) ([]byte, error) {

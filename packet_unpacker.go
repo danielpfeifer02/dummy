@@ -65,7 +65,7 @@ func (u *packetUnpacker) UnpackLongHeader(hdr *wire.Header, rcvTime time.Time, d
 		if err != nil {
 			return nil, err
 		}
-		extHdr, decrypted, err = u.unpackLongHeaderPacket(opener, hdr, data, v) // TODOME
+		extHdr, decrypted, err = u.unpackLongHeaderPacket(opener, hdr, data, v)
 		if err != nil {
 			return nil, err
 		}
@@ -126,7 +126,6 @@ func (u *packetUnpacker) UnpackShortHeader(rcvTime time.Time, data []byte) (prot
 }
 
 func (u *packetUnpacker) unpackLongHeaderPacket(opener handshake.LongHeaderOpener, hdr *wire.Header, data []byte, v protocol.Version) (*wire.ExtendedHeader, []byte, error) {
-	// TODOME decrypt error
 	extHdr, parseErr := u.unpackLongHeader(opener, hdr, data, v)
 	// If the reserved bits are set incorrectly, we still need to continue unpacking.
 	// This avoids a timing side-channel, which otherwise might allow an attacker
@@ -164,7 +163,11 @@ func (u *packetUnpacker) unpackShortHeaderPacket(opener handshake.ShortHeaderOpe
 
 func (u *packetUnpacker) unpackShortHeader(hd headerDecryptor, data []byte) (int, protocol.PacketNumber, protocol.PacketNumberLen, protocol.KeyPhaseBit, error) {
 	hdrLen := 1 /* first header byte */ + u.shortHdrConnIDLen
-	if len(data) < hdrLen+4 { //+16 { // TODOME remove 16 bc of decryption overhead (?)
+	// NO_CRYPTO_TAG
+	// here the offset for checking if a packet is too small
+	// is different since no crypto overhead is in the data
+	// TODO implement this as an *option* instead of just commenting it out
+	if len(data) < hdrLen+4 { //+16 {
 		return 0, 0, 0, 0, fmt.Errorf("packet too small, expected at least 20 bytes after the header, got %d", len(data)-hdrLen)
 	}
 	origPNBytes := make([]byte, 4)
@@ -209,7 +212,12 @@ func unpackLongHeader(hd headerDecryptor, hdr *wire.Header, data []byte, v proto
 	origPNBytes := make([]byte, 4)
 	copy(origPNBytes, data[hdrLen:hdrLen+4])
 	// 2. decrypt the header, assuming a 4 byte packet number
-	// TODOME no need for decryption (should be turned off in DecryptHeader)
+
+	// NO_CRYPTO_TAG
+	// omit cryptographic operations for prove of concept
+	// here nothing needs to be changed since no cryptographic operations are
+	// performed inside of the DecryptHeader function
+	// TODO implement this as an *option*
 	hd.DecryptHeader(
 		data[hdrLen+4:hdrLen+4+16],
 		&data[0],

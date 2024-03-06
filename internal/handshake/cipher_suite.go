@@ -85,31 +85,35 @@ func (f *xorNonceAEAD) Overhead() int         { return f.aead.Overhead() }
 func (f *xorNonceAEAD) explicitNonceLen() int { return 0 }
 
 func (f *xorNonceAEAD) Seal(out, nonce, plaintext, additionalData []byte) []byte {
-	// TODOME
+	// NO_CRYPTO_TAG
+	// omit cryptographic operations for prove of concept
+	// TODO implement this as an *option* instead of just commenting it out
 	return plaintext
 
-	for i, b := range nonce {
-		f.nonceMask[4+i] ^= b
-	}
-	result := f.aead.Seal(out, f.nonceMask[:], plaintext, additionalData)
-	for i, b := range nonce {
-		f.nonceMask[4+i] ^= b
-	}
+	// for i, b := range nonce {
+	// 	f.nonceMask[4+i] ^= b
+	// }
+	// result := f.aead.Seal(out, f.nonceMask[:], plaintext, additionalData)
+	// for i, b := range nonce {
+	// 	f.nonceMask[4+i] ^= b
+	// }
 
-	return result
+	// return result
 }
 
 func (f *xorNonceAEAD) Open(out, nonce, ciphertext, additionalData []byte) ([]byte, error) {
-	// TODOME
+	// NO_CRYPTO_TAG
+	// omit cryptographic operations for prove of concept
+	// TODO implement this as an *option* instead of just commenting it out
 	return ciphertext, nil
 
-	for i, b := range nonce {
-		f.nonceMask[4+i] ^= b
-	}
-	result, err := f.aead.Open(out, f.nonceMask[:], ciphertext, additionalData)
-	for i, b := range nonce {
-		f.nonceMask[4+i] ^= b
-	}
+	// for i, b := range nonce {
+	// 	f.nonceMask[4+i] ^= b
+	// }
+	// result, err := f.aead.Open(out, f.nonceMask[:], ciphertext, additionalData)
+	// for i, b := range nonce {
+	// 	f.nonceMask[4+i] ^= b
+	// }
 
-	return result, err
+	// return result, err
 }

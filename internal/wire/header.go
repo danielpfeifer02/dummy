@@ -154,11 +154,16 @@ func ParsePacket(data []byte) (*Header, []byte, []byte, error) {
 		}
 		return nil, nil, nil, err
 	}
-	hdr.Length -= 16 //TODOME comes from sealer.Overhead() in packet_packer.go (line 900)
+
+	// NO_CRYPTO_TAG
+	// omit cryptographic operations for prove of concept
+	// adapting the header length since no crypto overhead
+	// is present
+	// see: sealer.Overhead() in packet_packer.go (function starting at line 900)
+	// TODO is this always 16?
+	hdr.Length -= 16
+
 	if protocol.ByteCount(len(data)) < hdr.ParsedLen()+hdr.Length {
-		//TODOME
-		fmt.Printf("hdr.ParsedLen() = %d	hdr.Length: %d	len(data): %d\n", hdr.ParsedLen(), hdr.Length, len(data))
-		fmt.Printf("%x\n", data)
 		return nil, nil, nil, fmt.Errorf("packet length (%d bytes) is smaller than the expected length (%d bytes)", len(data)-int(hdr.ParsedLen()), hdr.Length)
 	}
 	packetLen := int(hdr.ParsedLen() + hdr.Length)
@@ -272,7 +277,6 @@ func (h *Header) parseLongHeader(b *bytes.Reader) error {
 		return err
 	}
 	h.Length = protocol.ByteCount(pl)
-	// fmt.Printf("%d %d %d %x %x %x\n", h.Length, h.Type, h.Version, h.SrcConnectionID, h.DestConnectionID, h.Token) //TODOME
 	return nil
 }
 
