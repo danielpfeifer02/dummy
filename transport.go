@@ -429,7 +429,6 @@ func (t *Transport) handlePacket(p receivedPacket) {
 
 	// If there's a connection associated with the connection ID, pass the packet there.
 	if handler, ok := t.handlerMap.Get(connID); ok {
-		print(1)
 		handler.handlePacket(p)
 		return
 	}

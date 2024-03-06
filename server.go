@@ -412,7 +412,6 @@ func (s *baseServer) handlePacketImpl(p receivedPacket) bool /* is the buffer st
 	}
 
 	if wire.Is0RTTPacket(p.data) {
-		print(3)
 		if !s.acceptEarlyConns {
 			if s.tracer != nil && s.tracer.DroppedPacket != nil {
 				s.tracer.DroppedPacket(p.remoteAddr, logging.PacketType0RTT, p.Size(), logging.PacketDropUnexpectedPacket)
@@ -435,7 +434,6 @@ func (s *baseServer) handlePacketImpl(p receivedPacket) bool /* is the buffer st
 	}
 	if hdr.Type == protocol.PacketTypeInitial && p.Size() < protocol.MinInitialPacketSize {
 		s.logger.Debugf("Dropping a packet that is too small to be a valid Initial (%d bytes)", p.Size())
-		print(2)
 		if s.tracer != nil && s.tracer.DroppedPacket != nil {
 			s.tracer.DroppedPacket(p.remoteAddr, logging.PacketTypeInitial, p.Size(), logging.PacketDropUnexpectedPacket)
 		}
