@@ -10,9 +10,9 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/quic-go-no-crypto/quic-go-no-crypto"
-	quicproxy "github.com/quic-go-no-crypto/quic-go-no-crypto/integrationtests/tools/proxy"
-	"github.com/quic-go-no-crypto/quic-go-no-crypto/internal/wire"
+	"github.com/danielpfeifer02/quic-go-no-crypto"
+	quicproxy "github.com/danielpfeifer02/quic-go-no-crypto/integrationtests/tools/proxy"
+	"github.com/danielpfeifer02/quic-go-no-crypto/internal/wire"
 
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"

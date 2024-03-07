@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/quic-go-no-crypto/quic-go-no-crypto/internal/protocol"
-	"github.com/quic-go-no-crypto/quic-go-no-crypto/quicvarint"
+	"github.com/danielpfeifer02/quic-go-no-crypto/internal/protocol"
+	"github.com/danielpfeifer02/quic-go-no-crypto/quicvarint"
 )
 
 // Clone clones a Config

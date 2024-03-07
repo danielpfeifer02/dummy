@@ -6,12 +6,12 @@ import (
 	"sync"
 	"time"
 
-	"github.com/quic-go-no-crypto/quic-go-no-crypto/internal/ackhandler"
-	"github.com/quic-go-no-crypto/quic-go-no-crypto/internal/flowcontrol"
-	"github.com/quic-go-no-crypto/quic-go-no-crypto/internal/protocol"
-	"github.com/quic-go-no-crypto/quic-go-no-crypto/internal/qerr"
-	"github.com/quic-go-no-crypto/quic-go-no-crypto/internal/utils"
-	"github.com/quic-go-no-crypto/quic-go-no-crypto/internal/wire"
+	"github.com/danielpfeifer02/quic-go-no-crypto/internal/ackhandler"
+	"github.com/danielpfeifer02/quic-go-no-crypto/internal/flowcontrol"
+	"github.com/danielpfeifer02/quic-go-no-crypto/internal/protocol"
+	"github.com/danielpfeifer02/quic-go-no-crypto/internal/qerr"
+	"github.com/danielpfeifer02/quic-go-no-crypto/internal/utils"
+	"github.com/danielpfeifer02/quic-go-no-crypto/internal/wire"
 )
 
 type sendStreamI interface {

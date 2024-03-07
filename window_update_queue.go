@@ -3,9 +3,9 @@ package quic
 import (
 	"sync"
 
-	"github.com/quic-go-no-crypto/quic-go-no-crypto/internal/flowcontrol"
-	"github.com/quic-go-no-crypto/quic-go-no-crypto/internal/protocol"
-	"github.com/quic-go-no-crypto/quic-go-no-crypto/internal/wire"
+	"github.com/danielpfeifer02/quic-go-no-crypto/internal/flowcontrol"
+	"github.com/danielpfeifer02/quic-go-no-crypto/internal/protocol"
+	"github.com/danielpfeifer02/quic-go-no-crypto/internal/wire"
 )
 
 type windowUpdateQueue struct {

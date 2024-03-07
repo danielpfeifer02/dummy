@@ -7,11 +7,11 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/quic-go-no-crypto/quic-go-no-crypto"
-	"github.com/quic-go-no-crypto/quic-go-no-crypto/http3"
-	"github.com/quic-go-no-crypto/quic-go-no-crypto/internal/qtls"
-	"github.com/quic-go-no-crypto/quic-go-no-crypto/interop/http09"
-	"github.com/quic-go-no-crypto/quic-go-no-crypto/interop/utils"
+	"github.com/danielpfeifer02/quic-go-no-crypto"
+	"github.com/danielpfeifer02/quic-go-no-crypto/http3"
+	"github.com/danielpfeifer02/quic-go-no-crypto/internal/qtls"
+	"github.com/danielpfeifer02/quic-go-no-crypto/interop/http09"
+	"github.com/danielpfeifer02/quic-go-no-crypto/interop/utils"
 )
 
 var tlsConf *tls.Config

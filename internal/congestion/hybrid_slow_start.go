@@ -3,7 +3,7 @@ package congestion
 import (
 	"time"
 
-	"github.com/quic-go-no-crypto/quic-go-no-crypto/internal/protocol"
+	"github.com/danielpfeifer02/quic-go-no-crypto/internal/protocol"
 )
 
 // Note(pwestin): the magic clamping numbers come from the original code in

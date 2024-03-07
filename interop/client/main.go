@@ -14,13 +14,13 @@ import (
 
 	"golang.org/x/sync/errgroup"
 
-	"github.com/quic-go-no-crypto/quic-go-no-crypto"
-	"github.com/quic-go-no-crypto/quic-go-no-crypto/http3"
-	"github.com/quic-go-no-crypto/quic-go-no-crypto/internal/handshake"
-	"github.com/quic-go-no-crypto/quic-go-no-crypto/internal/protocol"
-	"github.com/quic-go-no-crypto/quic-go-no-crypto/internal/qtls"
-	"github.com/quic-go-no-crypto/quic-go-no-crypto/interop/http09"
-	"github.com/quic-go-no-crypto/quic-go-no-crypto/interop/utils"
+	"github.com/danielpfeifer02/quic-go-no-crypto"
+	"github.com/danielpfeifer02/quic-go-no-crypto/http3"
+	"github.com/danielpfeifer02/quic-go-no-crypto/internal/handshake"
+	"github.com/danielpfeifer02/quic-go-no-crypto/internal/protocol"
+	"github.com/danielpfeifer02/quic-go-no-crypto/internal/qtls"
+	"github.com/danielpfeifer02/quic-go-no-crypto/interop/http09"
+	"github.com/danielpfeifer02/quic-go-no-crypto/interop/utils"
 )
 
 var errUnsupported = errors.New("unsupported test case")

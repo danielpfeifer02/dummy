@@ -5,10 +5,10 @@ import (
 	"net"
 	"time"
 
-	"github.com/quic-go-no-crypto/quic-go-no-crypto/internal/protocol"
-	"github.com/quic-go-no-crypto/quic-go-no-crypto/internal/utils"
-	"github.com/quic-go-no-crypto/quic-go-no-crypto/internal/wire"
-	"github.com/quic-go-no-crypto/quic-go-no-crypto/logging"
+	"github.com/danielpfeifer02/quic-go-no-crypto/internal/protocol"
+	"github.com/danielpfeifer02/quic-go-no-crypto/internal/utils"
+	"github.com/danielpfeifer02/quic-go-no-crypto/internal/wire"
+	"github.com/danielpfeifer02/quic-go-no-crypto/logging"
 
 	"github.com/francoispqt/gojay"
 )

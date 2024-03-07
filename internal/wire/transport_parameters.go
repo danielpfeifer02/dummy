@@ -11,10 +11,10 @@ import (
 	"sort"
 	"time"
 
-	"github.com/quic-go-no-crypto/quic-go-no-crypto/internal/protocol"
-	"github.com/quic-go-no-crypto/quic-go-no-crypto/internal/qerr"
-	"github.com/quic-go-no-crypto/quic-go-no-crypto/internal/utils"
-	"github.com/quic-go-no-crypto/quic-go-no-crypto/quicvarint"
+	"github.com/danielpfeifer02/quic-go-no-crypto/internal/protocol"
+	"github.com/danielpfeifer02/quic-go-no-crypto/internal/qerr"
+	"github.com/danielpfeifer02/quic-go-no-crypto/internal/utils"
+	"github.com/danielpfeifer02/quic-go-no-crypto/quicvarint"
 )
 
 // AdditionalTransportParametersClient are additional transport parameters that will be added

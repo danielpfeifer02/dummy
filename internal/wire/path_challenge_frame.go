@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"io"
 
-	"github.com/quic-go-no-crypto/quic-go-no-crypto/internal/protocol"
+	"github.com/danielpfeifer02/quic-go-no-crypto/internal/protocol"
 )
 
 // A PathChallengeFrame is a PATH_CHALLENGE frame

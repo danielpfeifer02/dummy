@@ -4,7 +4,7 @@ import (
 	"math"
 	"time"
 
-	"github.com/quic-go-no-crypto/quic-go-no-crypto/internal/protocol"
+	"github.com/danielpfeifer02/quic-go-no-crypto/internal/protocol"
 )
 
 // This cubic implementation is based on the one found in Chromiums's QUIC

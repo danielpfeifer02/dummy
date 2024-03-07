@@ -13,10 +13,10 @@ import (
 	reflect "reflect"
 	time "time"
 
-	protocol "github.com/quic-go-no-crypto/quic-go-no-crypto/internal/protocol"
-	utils "github.com/quic-go-no-crypto/quic-go-no-crypto/internal/utils"
-	wire "github.com/quic-go-no-crypto/quic-go-no-crypto/internal/wire"
-	logging "github.com/quic-go-no-crypto/quic-go-no-crypto/logging"
+	protocol "github.com/danielpfeifer02/quic-go-no-crypto/internal/protocol"
+	utils "github.com/danielpfeifer02/quic-go-no-crypto/internal/utils"
+	wire "github.com/danielpfeifer02/quic-go-no-crypto/internal/wire"
+	logging "github.com/danielpfeifer02/quic-go-no-crypto/logging"
 	gomock "go.uber.org/mock/gomock"
 )
 

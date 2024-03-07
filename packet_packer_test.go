@@ -9,14 +9,14 @@ import (
 
 	"golang.org/x/exp/rand"
 
-	"github.com/quic-go-no-crypto/quic-go-no-crypto/internal/ackhandler"
-	"github.com/quic-go-no-crypto/quic-go-no-crypto/internal/handshake"
-	"github.com/quic-go-no-crypto/quic-go-no-crypto/internal/mocks"
-	mockackhandler "github.com/quic-go-no-crypto/quic-go-no-crypto/internal/mocks/ackhandler"
-	"github.com/quic-go-no-crypto/quic-go-no-crypto/internal/protocol"
-	"github.com/quic-go-no-crypto/quic-go-no-crypto/internal/qerr"
-	"github.com/quic-go-no-crypto/quic-go-no-crypto/internal/utils"
-	"github.com/quic-go-no-crypto/quic-go-no-crypto/internal/wire"
+	"github.com/danielpfeifer02/quic-go-no-crypto/internal/ackhandler"
+	"github.com/danielpfeifer02/quic-go-no-crypto/internal/handshake"
+	"github.com/danielpfeifer02/quic-go-no-crypto/internal/mocks"
+	mockackhandler "github.com/danielpfeifer02/quic-go-no-crypto/internal/mocks/ackhandler"
+	"github.com/danielpfeifer02/quic-go-no-crypto/internal/protocol"
+	"github.com/danielpfeifer02/quic-go-no-crypto/internal/qerr"
+	"github.com/danielpfeifer02/quic-go-no-crypto/internal/utils"
+	"github.com/danielpfeifer02/quic-go-no-crypto/internal/wire"
 
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"

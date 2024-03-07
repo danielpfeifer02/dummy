@@ -8,10 +8,10 @@ import (
 	"log"
 	"os"
 
-	"github.com/quic-go-no-crypto/quic-go-no-crypto"
-	"github.com/quic-go-no-crypto/quic-go-no-crypto/internal/utils"
-	"github.com/quic-go-no-crypto/quic-go-no-crypto/logging"
-	"github.com/quic-go-no-crypto/quic-go-no-crypto/qlog"
+	"github.com/danielpfeifer02/quic-go-no-crypto"
+	"github.com/danielpfeifer02/quic-go-no-crypto/internal/utils"
+	"github.com/danielpfeifer02/quic-go-no-crypto/logging"
+	"github.com/danielpfeifer02/quic-go-no-crypto/qlog"
 )
 
 func NewQlogger(logger io.Writer) func(context.Context, logging.Perspective, quic.ConnectionID) *logging.ConnectionTracer {

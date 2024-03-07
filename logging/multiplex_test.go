@@ -5,10 +5,10 @@ import (
 	"net"
 	"time"
 
-	mocklogging "github.com/quic-go-no-crypto/quic-go-no-crypto/internal/mocks/logging"
-	"github.com/quic-go-no-crypto/quic-go-no-crypto/internal/protocol"
-	"github.com/quic-go-no-crypto/quic-go-no-crypto/internal/wire"
-	. "github.com/quic-go-no-crypto/quic-go-no-crypto/logging"
+	mocklogging "github.com/danielpfeifer02/quic-go-no-crypto/internal/mocks/logging"
+	"github.com/danielpfeifer02/quic-go-no-crypto/internal/protocol"
+	"github.com/danielpfeifer02/quic-go-no-crypto/internal/wire"
+	. "github.com/danielpfeifer02/quic-go-no-crypto/logging"
 
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"

@@ -13,7 +13,7 @@ import (
 	net "net"
 	reflect "reflect"
 
-	qerr "github.com/quic-go-no-crypto/quic-go-no-crypto/internal/qerr"
+	qerr "github.com/danielpfeifer02/quic-go-no-crypto/internal/qerr"
 	gomock "go.uber.org/mock/gomock"
 )
 

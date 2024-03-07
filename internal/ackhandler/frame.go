@@ -1,7 +1,7 @@
 package ackhandler
 
 import (
-	"github.com/quic-go-no-crypto/quic-go-no-crypto/internal/wire"
+	"github.com/danielpfeifer02/quic-go-no-crypto/internal/wire"
 )
 
 // FrameHandler handles the acknowledgement and the loss of a frame.

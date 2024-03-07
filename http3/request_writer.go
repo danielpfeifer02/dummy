@@ -15,8 +15,8 @@ import (
 	"golang.org/x/net/http2/hpack"
 	"golang.org/x/net/idna"
 
-	"github.com/quic-go-no-crypto/quic-go-no-crypto"
-	"github.com/quic-go-no-crypto/quic-go-no-crypto/internal/utils"
+	"github.com/danielpfeifer02/quic-go-no-crypto"
+	"github.com/danielpfeifer02/quic-go-no-crypto/internal/utils"
 	"github.com/quic-go/qpack"
 )
 

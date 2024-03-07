@@ -1,6 +1,6 @@
 package logging
 
-import "github.com/quic-go-no-crypto/quic-go-no-crypto/internal/wire"
+import "github.com/danielpfeifer02/quic-go-no-crypto/internal/wire"
 
 // A Frame is a QUIC frame
 type Frame interface{}

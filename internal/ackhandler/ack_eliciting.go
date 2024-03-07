@@ -1,6 +1,6 @@
 package ackhandler
 
-import "github.com/quic-go-no-crypto/quic-go-no-crypto/internal/wire"
+import "github.com/danielpfeifer02/quic-go-no-crypto/internal/wire"
 
 // IsFrameAckEliciting returns true if the frame is ack-eliciting.
 func IsFrameAckEliciting(f wire.Frame) bool {

@@ -5,10 +5,10 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/quic-go-no-crypto/quic-go-no-crypto/internal/handshake"
-	"github.com/quic-go-no-crypto/quic-go-no-crypto/internal/protocol"
-	"github.com/quic-go-no-crypto/quic-go-no-crypto/internal/qerr"
-	"github.com/quic-go-no-crypto/quic-go-no-crypto/internal/wire"
+	"github.com/danielpfeifer02/quic-go-no-crypto/internal/handshake"
+	"github.com/danielpfeifer02/quic-go-no-crypto/internal/protocol"
+	"github.com/danielpfeifer02/quic-go-no-crypto/internal/qerr"
+	"github.com/danielpfeifer02/quic-go-no-crypto/internal/wire"
 )
 
 type headerDecryptor interface {

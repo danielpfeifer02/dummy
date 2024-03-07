@@ -13,10 +13,10 @@ import (
 	reflect "reflect"
 	time "time"
 
-	ackhandler "github.com/quic-go-no-crypto/quic-go-no-crypto/internal/ackhandler"
-	protocol "github.com/quic-go-no-crypto/quic-go-no-crypto/internal/protocol"
-	qerr "github.com/quic-go-no-crypto/quic-go-no-crypto/internal/qerr"
-	wire "github.com/quic-go-no-crypto/quic-go-no-crypto/internal/wire"
+	ackhandler "github.com/danielpfeifer02/quic-go-no-crypto/internal/ackhandler"
+	protocol "github.com/danielpfeifer02/quic-go-no-crypto/internal/protocol"
+	qerr "github.com/danielpfeifer02/quic-go-no-crypto/internal/qerr"
+	wire "github.com/danielpfeifer02/quic-go-no-crypto/internal/wire"
 	gomock "go.uber.org/mock/gomock"
 )
 
