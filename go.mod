@@ -1,4 +1,4 @@
-module github.com/quic-go-no-crypto/quic-go-no-crypto
+module github.com/danielpfeifer02/quic-go-no-crypto
 
 go 1.21
 
